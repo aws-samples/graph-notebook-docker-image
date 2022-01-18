@@ -25,21 +25,24 @@ The container image available in this repository utilizes an [Amazon Linux conta
 
 [Build and deploy this image](https://docs.docker.com/get-started/part2/) with the following code:
 
-``` 
-docker build -t graph\_notebook . 
+```
+git clone https://github.com/aws-samples/graph-notebook-docker-image
+cd graph-notebook-docker-image
+
+docker build --no-cache -t graph_notebook ./
 
 docker run \
---env GRAPH\_NOTEBOOK\_AUTH\_MODE="DEFAULT" \
+--env GRAPH_NOTEBOOK_AUTH_MODE="DEFAULT" \
 --env GRAPH\_NOTEBOOK\_HOST="neptune.cluster-XXXXXXX.us-east-1.neptune.amazonaws.com" \
---env GRAPH\_NOTEBOOK\_PORT="8182" \
---env NEPTUNE\_LOAD\_FROM\_S3\_ROLE\_ARN="" \
---env AWS\_REGION="cn-northwest-1" \
---env NOTEBOOK\_PORT="8888" \
---env LAB\_PORT="8889" \
---env GRAPH\_NOTEBOOK\_SSL="True" 
+--env GRAPH_NOTEBOOK_PORT="8182" \
+--env NEPTUNE_LOAD_FROM_S3_ROLE_ARN="" \
+--env AWS_REGION="us-east-1" \
+--env NOTEBOOK_PORT="8888" \
+--env LAB_PORT="8889" \
+--env GRAPH_NOTEBOOK_SSL="True" \
 --env NOTEBOOK\_PASSWORD="mypassword@123"\
 -p 8888:8888 \
--d graph\_notebook:latest 
+-d graph_notebook:latest
 ```
 
 1. Browse to the URL of your machine (http://<Public IP>:< NOTEBOOK\_PORT>).
