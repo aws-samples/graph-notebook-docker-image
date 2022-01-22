@@ -4,7 +4,6 @@
 # SPDX-License-Identifier: Apache-2.0
 
 ##### Ininition Enviroment #####
-yum install -y wget curl tar gzip which
 cd ~
 wget https://repo.anaconda.com/archive/Anaconda3-2019.07-Linux-x86_64.sh -O ~/Anaconda3-2019.07-Linux-x86_64.sh
 mkdir ~/.conda/
@@ -22,11 +21,6 @@ else
     echo "Unable to determine region！";
     pipargs=''
 fi
-
-##### Install NodeJs #####
-curl --silent --location https://rpm.nodesource.com/setup_12.x | bash -
-yum install -y nodejs
-npm install -g opencollective
 
 ##### Copy To Home Directory #####
 source ~/.bashrc
